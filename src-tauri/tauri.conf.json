@@ -1,0 +1,32 @@
+{
+  "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
+  "productName": "Filestorage",
+  "version": "0.1.0",
+  "identifier": "local.filestorage.desktop",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://127.0.0.1:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "Personal Vault",
+        "width": 1060,
+        "height": 760,
+        "minWidth": 500,
+        "minHeight": 570
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; connect-src ipc: http://ipc.localhost; img-src 'self'; style-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["nsis", "deb"],
+    "icon": ["icons/icon.png", "icons/icon.ico"]
+  }
+}
